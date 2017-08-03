@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Eiercode-matcher</title>
+    <style type="text/css">
+        body,
+        html {
+            background: lightgray;
+        }
+
+        * {
+            text-align: center;
+            font-size: 24px;
+            font-family: 'Comic Sans MS';
+        }
+
+        .invoer, p {
+            font-size: 18px;
+            font-style: italic;
+        }
+
+        .resultaat {
+            margin-top: 10px;
+        }
+
+        .input {
+            display: none;
+        }
+
+        #code {
+            margin-top: 20px;
+        }
+
+        .resultaat :not(.invoer) {
+            display: none;
+        }
+
+        .lijst1 {
+            color: red;
+        }
+
+        .lijst2,
+        .lijst2 {
+            color: darkorange;
+        }
+
+        .veilig {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <label for="code">Code zoals op EI</label>
+    <input type="text" id="code" />
+    <div class="resultaat">
+        <div class="invoer">Voer de code in zoals op het EI te vinden is. B.v. 1 NL 2345678. Streepjes, spaties en hoofdletters worden genegeerd.</div>
+        <div class="veilig">Veilig :)</div>
+        <div class="lijst3">Fipronil aangetroffen in bedrijf! (Is het dan wel veilig? Geen idee!)</div>
+        <div class="lijst2">Niet door kinderen laten eten</div>
+        <div class="lijst1">ECHT niet eten!</div>
+    </div>
+    <div class="input">
+        <div data-id="lijst1">
+            2-NL-4015502
+        </div>
+        <div data-id="lijst2">
+            eicodes X-NL 40004XX tot en met X-NL 42068XX X-NL 40004XX X-NL 40709XX X-NL 40050XX X-NL 41176XX X-NL 40173XX X-NL 41205XX
+            X-NL 40309XX X-NL 41261XX X-NL 40385XX X-NL 41435XX X-NL 40446XX X-NL 41437XX X-NL 40494XX X-NL 41649XX X-NL
+            40534XX X-NL 41679XX X-NL 40554XX X-NL 42037XX X-NL 40567XX X-NL 42068XX eicodes X-NL 42071XX tot en met X-NL
+            43345XX X-NL 42071XX X-NL 42864XX X-NL 42206XX X-NL 42894XX X-NL 42395XX X-NL 42987XX X-NL 42568XX X-NL 42995XX
+            X-NL 42635XX X-NL 43100XX X-NL 42659XX X-NL 43113XX X-NL 42736XX X-NL 43154XX X-NL 42766XX X-NL 43224XX X-NL
+            42775XX X-NL 43326XX X-NL 42858XX X-NL 43345XX eicodes X-NL 43425XX tot en met X-NL 46351XX X-NL 43425XX X-NL
+            43835XX X-NL 43434XX X-NL 43872XX X-NL 43476XX X-NL 43879XX X-NL 43501XX X-NL 43925XX X-NL 43514XX X-NL 43943XX
+            X-NL 43526XX X-NL 43998XX X-NL 43640XX X-NL 44023XX X-NL 43657XX X-NL 46351XX X-NL 43665XX   X-NL 43780XX   </div>
+        <div data-id="lijst3">
+            eicodes 2-NL-4015502 tot en met X-NL 40419XX 2-NL-4015502   X-NL 40004XX X-NL 40255XX X-NL 40040XX X-NL 40275XX X-NL 40050XX
+            X-NL 40303XX X-NL 40105XX X-NL 40309XX X-NL 40122XX X-NL 40385XX X-NL 40135XX X-NL 40386XX X-NL 40165XX X-NL
+            40411XX X-NL 40173XX X-NL 40412XX X-NL 40227XX X-NL 40415XX X-NL 40240XX X-NL 40419XX eicodes X-NL 40444XX tot
+            en met X-NL 41227XX X-NL 40444XX X-NL 40709XX X-NL 40446XX X-NL 40746XX X-NL 40494XX X-NL 40832XX X-NL 40496XX
+            X-NL 41086XX X-NL 40505XX X-NL 41110XX X-NL 40534XX X-NL 41129XX X-NL 40544XX X-NL 41169XX X-NL 40554XX X-NL
+            41176XX X-NL 40567XX X-NL 41205XX X-NL 40658XX X-NL 41227XX eicodes X-NL 41261XX tot en met X-NL 42121XX X-NL
+            41261XX X-NL 41856XX X-NL 41284XX X-NL 41973XX X-NL 41435XX X-NL 42037XX X-NL 41437XX X-NL 42051XX X-NL 41488XX
+            X-NL 42068XX X-NL 41506XX X-NL 42071XX X-NL 41649XX X-NL 42083XX X-NL 41679XX X-NL 42102XX X-NL 41701XX X-NL
+            42114XX X-NL 41746XX X-NL 42121XX eicodes X-NL 42151XX tot en met X-NL 42826XX X-NL 42151XX X-NL 42693XX X-NL
+            42183XX X-NL 42708XX X-NL 42206XX X-NL 42722XX X-NL 42364XX X-NL 42723XX X-NL 42395XX X-NL 42736XX X-NL 42532XX
+            X-NL 42756XX X-NL 42568XX X-NL 42766XX X-NL 42635XX X-NL 42775XX X-NL 42650XX X-NL 42810XX X-NL 42659XX X-NL
+            42826XX eicodes X-NL 42858XX tot en met X-NL 43425XX X-NL 42858XX X-NL 43100XX X-NL 42860XX X-NL 43113XX X-NL
+            42864XX X-NL 43154XX X-NL 42894XX X-NL 43195XX X-NL 42901XX X-NL 43224XX X-NL 42978XX X-NL 43319XX X-NL 42984XX
+            X-NL 43326XX X-NL 42987XX X-NL 43345XX X-NL 42995XX X-NL 43399XX X-NL 43020XX X-NL 43425XX eicodes X-NL 43434XX
+            to en met X-NL 43780XX X-NL 43434XX X-NL 43657XX X-NL 43476XX X-NL 43665XX X-NL 43501XX X-NL 43667XX X-NL 43514XX
+            X-NL 43672XX X-NL 43526XX X-NL 43680XX X-NL 43560XX X-NL 43685XX X-NL 43598XX X-NL 43702XX X-NL 43601XX X-NL
+            43703XX X-NL 43615XX X-NL 43708XX X-NL 43640XX X-NL 43780XX eicodes X-NL 43781XX tot en met X-NL 46351XX X-NL
+            43781XX X-NL 43926XX X-NL 43835XX X-NL 43943XX X-NL 43838XX X-NL 43992XX X-NL 43855XX X-NL 43998XX X-NL 43872XX
+            X-NL 44013XX X-NL 43879XX X-NL 44023XX X-NL 43894XX X-NL 46351XX X-NL 43903XX   X-NL 43916XX   X-NL 43925XX
+        </div>
+        <div data-id="veilig">
+            X-NL XXXXXXX
+        </div>
+    </div>
+    <p>Mocht het lettertype het al niet weggeven: dit is niet officieel en <em>totaal</em> onbetrouwbaar!</p>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        function parse(text) {
+            var codes = $.map(text.match(/[\dX]-NL[\- ][\dX]+/g), function (val) { return val.replace(/X/g, '\\d').replace(/[ \-]/g, ''); });
+            return RegExp(`^(${codes.join('|')})$`, 'g');
+        }
+        var codes = (function () {
+            var result = {};
+            $('.input div').each(function (index, elem) {
+                var $elem = $(elem);
+                result[$elem.data().id] = parse($elem.text());
+            });
+            return result;
+        })();
+        function validate($code) {
+            var code = $code.val().replace(/[ \-]/g, '').toUpperCase().trim();
+            var lijsten = ['veilig', 'lijst3', 'lijst2', 'lijst1'];
+            var lijst = null;
+            for (var i = 0; i < lijsten.length; i++) {
+                var pattern = codes[lijsten[i]];
+                if (pattern.test(code)) {
+                    lijst = lijsten[i];
+                }
+                pattern.lastIndex = 0;
+            }
+            function toggle(name) {
+                $(`.resultaat div:not(.${name})`).hide();
+                $(`.resultaat div.${name}`).show();
+            }
+            toggle(lijst == null ? 'invoer' : lijst);
+        }
+        $(document).ready(function () {
+            var $code = $('#code');
+            validate($code);
+            $code.on('keyup change', function () { validate($code) });
+        });
+    </script>
+</body>
+
+</html>
