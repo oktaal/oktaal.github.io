@@ -43,11 +43,11 @@
 
         #kwaliteit,
         #land {
-            width: 2em;
+            width: 1.7em;
         }
 
         #id {
-            width: 5em;
+            width: 4.6em;
         }
 
         .resultaat :not(.invoer) {
@@ -73,9 +73,9 @@
     <div id="code">
         <label for="kwaliteit">Code zoals op EI</label>
         <div style="display:inline-block">
-            <input type="number" id="kwaliteit" maxlength="1" min="0" max="2" />
+            <input type="number" id="kwaliteit" maxlength="1" min="0" max="2"  pattern="[0-2]" />
             <input type="text" disabled id="land" value="NL" />
-            <input type="number" id="id" maxlength="7" min="1000000" max="9999999" /></div>
+            <input type="number" id="id" maxlength="7" min="1000000" max="9999999" pattern="\d{0,7}" /></div>
     </div>
     <div class="resultaat">
         <div class="invoer">Voer de code in zoals op het EI te vinden is. B.v. 1 NL 2345678. Geen NL? Dan weet ik het niet!</div>
@@ -122,9 +122,9 @@
             X-NL XXXXXXX
         </div>
     </div>
-    <p>Mocht het lettertype het al niet weggeven: dit is niet officieel!</p>
-    <p><a href="https://www.nvwa.nl/onderwerpen/biociden/fipronil-in-eieren/lijst-met-eicodes-waarvan-de-nvwa-adviseert-ze-niet-te-eten">Dit is de officiele NVWA-lijst!</a></p>
-    <p> Laatst ge&uuml;pdatet op 3 oktober 2017 @ 22:02</p>
+    <p>Mocht het lettertype het al niet weggeven: <u>dit is niet officieel!</u></p>
+    <p><a href="https://www.nvwa.nl/onderwerpen/biociden/fipronil-in-eieren/lijst-met-eicodes-waarvan-de-nvwa-adviseert-ze-niet-te-eten">HIER is de officiele lijst!</a></p>
+    <p> Laatst ge&uuml;pdatet op 3 oktober 2017 @ 22:26</p>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
         function parse(text) {
