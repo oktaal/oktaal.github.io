@@ -41,6 +41,15 @@
             margin-top: 20px;
         }
 
+        #kwaliteit,
+        #land {
+            width: 2em;
+        }
+
+        #id {
+            width: 5em;
+        }
+
         .resultaat :not(.invoer) {
             display: none;
         }
@@ -61,10 +70,15 @@
 </head>
 
 <body>
-    <label for="code">Code zoals op EI</label>
-    <input type="text" id="code" />
+    <div id="code">
+        <label for="kwaliteit">Code zoals op EI</label>
+        <div style="display:inline-block">
+            <input type="number" id="kwaliteit" maxlength="1" min="0" max="2" />
+            <input type="text" disabled id="land" value="NL" />
+            <input type="number" id="id" maxlength="7" min="1000000" max="9999999" /></div>
+    </div>
     <div class="resultaat">
-        <div class="invoer">Voer de code in zoals op het EI te vinden is. B.v. 1 NL 2345678. Streepjes, spaties en hoofdletters worden genegeerd.</div>
+        <div class="invoer">Voer de code in zoals op het EI te vinden is. B.v. 1 NL 2345678. Geen NL? Dan weet ik het niet!</div>
         <div class="veilig">Veilig :)</div>
         <div class="lijst3">Fipronil aangetroffen in bedrijf! (Is het dan wel veilig? Geen idee!)</div>
         <div class="lijst2">Niet door kinderen laten eten</div>
@@ -108,8 +122,9 @@
             X-NL XXXXXXX
         </div>
     </div>
-    <p>Mocht het lettertype het al niet weggeven: dit is niet officieel! <a href="https://www.nvwa.nl/onderwerpen/biociden/fipronil-in-eieren/lijst-met-eicodes-waarvan-de-nvwa-adviseert-ze-niet-te-eten">Dit is de officiele NVWA-lijst!</a>
-        Laatst ge&uuml;pdatet op 3 oktober 2017 @ 22:02</p>
+    <p>Mocht het lettertype het al niet weggeven: dit is niet officieel!</p>
+    <p><a href="https://www.nvwa.nl/onderwerpen/biociden/fipronil-in-eieren/lijst-met-eicodes-waarvan-de-nvwa-adviseert-ze-niet-te-eten">Dit is de officiele NVWA-lijst!</a></p>
+    <p> Laatst ge&uuml;pdatet op 3 oktober 2017 @ 22:02</p>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
         function parse(text) {
@@ -124,8 +139,8 @@
             });
             return result;
         })();
-        function validate($code) {
-            var code = $code.val().replace(/[ \-]/g, '').toUpperCase().trim();
+        function validate(code) {
+            var code = code.replace(/[ \-]/g, '').toUpperCase().trim();
             var lijsten = ['veilig', 'lijst3', 'lijst2', 'lijst1'];
             var lijst = null;
             for (var i = 0; i < lijsten.length; i++) {
@@ -141,10 +156,22 @@
             }
             toggle(lijst == null ? 'invoer' : lijst);
         }
+        function getValue() {
+            return $('#kwaliteit').val() + $('#land').val() + $('#id').val();
+        }
         $(document).ready(function () {
-            var $code = $('#code');
-            validate($code);
-            $code.on('keyup change', function () { validate($code) });
+            var kwaliteit = '';
+            $('#kwaliteit').on('change keyup', function () {
+                var currVal = $('#kwaliteit').val();
+                if (currVal.length && kwaliteit != currVal) {
+                    $('#id').focus();
+                    kwaliteit = currVal;
+                }
+            });
+            $('#kwaliteit,#land,#id').on('change keyup', function () {
+                validate(getValue());
+            });
+            validate(getValue());
         });
     </script>
 </body>
