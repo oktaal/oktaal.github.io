@@ -3,8 +3,9 @@
 
 <head>
     <title>Eiercode-matcher</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style type="text/css">
+        @import 'fonts/fonts.css';
         body,
         html {
             background: lightgray;
@@ -13,10 +14,18 @@
         * {
             text-align: center;
             font-size: 24px;
-            font-family: 'Comic Sans MS';
+            font-family: 'Comic Sans MS', 'Comic Neue', sans-serif;
+            font-weight: 400;
+            font-size: 1em;
+            line-height: 1.5;
+            /* Enable a font's kerning: http://stackoverflow.com/questions/15160897/font-feature-settings-what-is-the-correct-syntax */
+            font-feature-settings: "kern";
+            -moz-font-feature-settings: "kern";
+            -webkit-font-feature-settings: "kern";
         }
 
-        .invoer, p {
+        .invoer,
+        p {
             font-size: 18px;
             font-style: italic;
         }
@@ -74,7 +83,7 @@
             X-NL 42635XX X-NL 43100XX X-NL 42659XX X-NL 43113XX X-NL 42736XX X-NL 43154XX X-NL 42766XX X-NL 43224XX X-NL
             42775XX X-NL 43326XX X-NL 42858XX X-NL 43345XX eicodes X-NL 43425XX tot en met X-NL 46351XX X-NL 43425XX X-NL
             43835XX X-NL 43434XX X-NL 43872XX X-NL 43476XX X-NL 43879XX X-NL 43501XX X-NL 43925XX X-NL 43514XX X-NL 43943XX
-            X-NL 43526XX X-NL 43998XX X-NL 43640XX X-NL 44023XX X-NL 43657XX X-NL 46351XX X-NL 43665XX   X-NL 43780XX   </div>
+            X-NL 43526XX X-NL 43998XX X-NL 43640XX X-NL 44023XX X-NL 43657XX X-NL 46351XX X-NL 43665XX   X-NL 43780XX </div>
         <div data-id="lijst3">
             eicodes 2-NL-4015502 tot en met X-NL 40419XX 2-NL-4015502   X-NL 40004XX X-NL 40255XX X-NL 40040XX X-NL 40275XX X-NL 40050XX
             X-NL 40303XX X-NL 40105XX X-NL 40309XX X-NL 40122XX X-NL 40385XX X-NL 40135XX X-NL 40386XX X-NL 40165XX X-NL
@@ -100,7 +109,8 @@
             X-NL XXXXXXX
         </div>
     </div>
-    <p>Mocht het lettertype het al niet weggeven: dit is niet officieel en <em>totaal</em> onbetrouwbaar!</p>
+    <p>Mocht het lettertype het al niet weggeven: dit is niet officieel! <a href="https://www.nvwa.nl/onderwerpen/biociden/fipronil-in-eieren/lijst-met-eicodes-waarvan-de-nvwa-adviseert-ze-niet-te-eten">Dit is de officiele NVWA-lijst!</a>
+        Laatst ge&uuml;pdatet op 3 oktober 2017 @ 22:02</p>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
         function parse(text) {
